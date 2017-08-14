@@ -1,0 +1,34 @@
+﻿@model UnitConverter.Models.ViewModels.UnitViewModel
+
+@{
+    ViewBag.Title = "Conversion";
+}
+
+<h3>
+    @ViewBag.Title
+</h3>
+
+@using (Html.BeginForm("Convert", "Conversion", FormMethod.Post,
+                                         new { enctype = "multipart/form-data" }))
+{
+<div class="col-md-3">
+    @Html.TextBoxFor(model => model.Value)
+</div>
+
+<div class="col-md-3">
+    @Html.DropDownListFor(model => model.Unit, Model.DropDownUnits, new { @class = "form-control" })
+</div>
+
+<div class="col-md-3">
+    @Html.TextBoxFor(model => model.ToValue)
+</div>
+
+<div class="col-md-3">
+    @Html.DropDownListFor(model => model.ToUnit, Model.DropDownUnits, new { @class = "form-control" })
+</div>
+
+<input type="submit" name="SaveButton" value="Convert" />
+
+
+
+}
